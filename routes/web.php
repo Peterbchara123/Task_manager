@@ -8,7 +8,7 @@ use App\Http\Controllers\CategoryController;
 //     return view('welcome');
 // });
 
-// Register resource controllers outside the closure
+
 Route::resource('task', TaskController::class);
 Route::resource('categories', CategoryController::class);
 

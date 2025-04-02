@@ -9,12 +9,22 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="{{ route('task.index') }}">Task Manager</a>
-            <div class="collapse navbar-collapse">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Task Manager</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="{{ route('task.index') }}">Tasks</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('categories.index') }}">Categories</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ route('task.index') }}">Tasks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('categories.index') }}">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('history') }}">History</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -22,8 +32,39 @@
 
     <div class="container mt-4">
         @yield('content')
+
+
+        
+
     </div>
 
+    <div class="container text-center my-4">
+    
+    <h4 class="text-primary fw-bold">🌟 Keep Going! You’re Doing Great! 🌟</h4>
+    <p class="text-muted">Every completed task is a step closer to success.</p>
+
+    @php
+        $totalTasks = \App\Models\Task::count();
+        $completedTasks = \App\Models\Task::where('status', 'completed')->count();
+        $progress = $totalTasks > 0 ? ($completedTasks / $totalTasks) * 100 : 0;
+    @endphp
+
+    <div class="progress mt-3" style="height: 25px;">
+        <div class="progress-bar bg-success" role="progressbar" 
+             style="width: {{ $progress }}%;" 
+             aria-valuenow="{{ $progress }}" 
+             aria-valuemin="0" aria-valuemax="100">
+            {{ round($progress) }}% Completed
+        </div>
+    </div>
+
+    
+    <div class="mt-4">
+        <i class="fas fa-smile-beam fa-3x text-warning animate__animated animate__bounce"></i>
+    </div>
+</div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </body>
 </html>
