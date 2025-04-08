@@ -13,7 +13,7 @@
         </div>
 
         <div class="form-group mt-3">
-            <button type="submit" class="btn btn-primary">Create Category</button>
+            <button type="submit" class="btn btn-primary btn-sm btn-md btn-lg">Create Category</button>
         </div>
     </form>
 </div>

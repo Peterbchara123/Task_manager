@@ -10,7 +10,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Task Manager</a>
+            <a class="navbar-brand" href="{{route('task.index')}}">Task Manager</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -30,17 +30,18 @@
         </div>
     </nav>
 
-    <div class="container mt-4">
+    <div class="d-flex flex-column min-vh-100">
+        <div class="container my-4">
+    <div class="p-4 bg-light text-center rounded shadow-sm">
+        <h2 class="text-primary">Welcome to Your Task Manager! 🚀</h2>
+        <p class="text-muted">Stay organized and track your tasks efficiently.</p>
+    </div>
+</div>
         @yield('content')
 
-
-        
-
-    </div>
-
-    <div class="container text-center my-4">
+<div class="container text-center mt-5 ">
     
-    <h4 class="text-primary fw-bold">🌟 Keep Going! You’re Doing Great! 🌟</h4>
+    <h4 class="text-primary fw-medium">🌟 Keep Going! You’re Doing Great! 🌟</h4>
     <p class="text-muted">Every completed task is a step closer to success.</p>
 
     @php
@@ -49,7 +50,7 @@
         $progress = $totalTasks > 0 ? ($completedTasks / $totalTasks) * 100 : 0;
     @endphp
 
-    <div class="progress mt-3" style="height: 25px;">
+    <div class="progress mt-3 h-25  " >
         <div class="progress-bar bg-success" role="progressbar" 
              style="width: {{ $progress }}%;" 
              aria-valuenow="{{ $progress }}" 
@@ -63,6 +64,21 @@
         <i class="fas fa-smile-beam fa-3x text-warning animate__animated animate__bounce"></i>
     </div>
 </div>
+
+        
+
+    </div>
+
+    
+    <footer class="bg-dark text-white text-center py-3 mt-auto">
+        <div class="container d-flex justify-content-between align-items-start">
+            <p class="col-4">Created with ❤️ by Peter Bchara</p>
+            <p class="col-4">&copy; 2025 Task Manager. All rights reserved.</p>
+            <p class="col-4">Rate us on <a href="https://github.com/Peterbchara123/Task_manager" class="text-primary">GitHub</a></p>
+        </div>
+    </footer>
+</body>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
