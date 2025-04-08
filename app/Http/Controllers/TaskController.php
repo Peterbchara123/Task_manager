@@ -10,7 +10,7 @@ class TaskController extends Controller{
 
 public function index()
 {
-    $tasks = Task::where('status', 'pending')->get(); 
+    $tasks = Task::where('status', 'pending')->paginate(5); 
     return view('task.index', compact('tasks'));
 }
 public function create()
@@ -44,13 +44,13 @@ public function update(Request $request, Task $task)
     ]);
 
     $task->update($request->only('title', 'category_id'));
-    return redirect()->route('task.index')->with('success', 'Task updated successfully!');  // Change 'tasks.index' to 'task.index'
+    return redirect()->route('task.index')->with('success', 'Task updated successfully!');  
 }
 
 public function destroy(Task $task)
 {
     $task->delete();
-    return redirect()->route('task.index')->with('success', 'Task deleted successfully!');  // Change 'tasks.index' to 'task.index'
+    return redirect()->route('task.index')->with('success', 'Task deleted successfully!');  
 }
 
 

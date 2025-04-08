@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container mt-5 bg-light p-4 rounded ">
-    <!-- Breadcrumbs -->
+    
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item active" aria-current="page"></li>
@@ -11,25 +11,25 @@
 
     <div class="row justify-content-center">
         <div class="col-lg-8 col-md-10 col-sm-12">
-            <!-- Card for Task List -->
+            
             <div class="card shadow-lg border-primary">
                 <div class="card-header bg-primary text-white text-center">
                     <h3 class="mb-0">Tasks List</h3>
                 </div>
                 <div class="card-body">
-                    <!-- Display Success Message if Any -->
+                    
                     @if(session('success'))
                         <div class="alert alert-success">
                             {{ session('success') }}
                         </div>
                     @endif
 
-                    <!-- Add New Task Button -->
+                    
                     <div class="mb-3 text-end">
                         <a href="{{ route('task.create') }}" class="btn btn-primary">Create New Task</a>
                     </div>
 
-                    <!-- Task Table (Responsive) -->
+                    
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped">
                             <thead class="text-center">
@@ -52,12 +52,12 @@
                                         </td>
                                         <td>
                                             <div class="d-flex flex-wrap gap-2">
-                                                <!-- Edit Button -->
+                                                
                                                 <a href="{{ route('task.edit', $task->id) }}" class="btn btn-warning btn-sm btn-md btn-lg">
                                                     <i class="fas fa-edit"></i> Edit
                                                 </a>
 
-                                                <!-- Mark as Done / Undo Button -->
+                                                
                                                 @if($task->status != 'completed')
                                                     <form action="{{ route('task.done', $task->id) }}" method="POST" class="d-inline">
                                                         @csrf
@@ -92,9 +92,9 @@
                         </table>
                     </div>
 
-                    <!-- Pagination (Optional) -->
+                    
                     <div class="d-flex justify-content-center">
-                        {{ $tasks->links('pagination::bootstrap-5') }}
+                        {{ $tasks->links('pagination::bootstrap-4') }}
                     </div>
 
                     <a href="{{ route('history') }}" class="btn btn-outline-primary">View Completed Tasks</a>
