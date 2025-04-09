@@ -44,10 +44,11 @@
                                 <tr>
                                     <td>{{ $category->name }}</td>
                                     <td>
-                                        
-                                        <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-warning btn-sm btn-md btn-lg">
-                                            <i class="fas fa-edit"></i> Edit
-                                        </a>
+                                       <div class="d-flex flex-wrap gap-2">
+                                                
+                                                <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-warning btn-sm btn-md btn-lg">
+                                                    <i class="fas fa-edit"></i> Edit
+                                                </a>
 
                                         
                                         <form action="{{ route('categories.destroy', $category->id) }}" method="POST" class="d-inline">

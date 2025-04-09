@@ -26,7 +26,8 @@
 
                     
                     <div class="mb-3 text-end">
-                        <a href="{{ route('task.create') }}" class="btn btn-primary">Create New Task</a>
+                        <a href="{{ route('task.create') }}" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Create New Task</a>
                     </div>
 
                     
