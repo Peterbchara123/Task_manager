@@ -43,10 +43,10 @@
                                         <td>
                                             <span class="badge bg-success">Completed</span>
                                         </td>
-                                        <td class="text-center">
-                                            <!-- Buttons Wrapper for Responsive Layout -->
-                                            <div class="d-flex flex-wrap justify-content-center gap-2">
-                                                <!-- Restore Button -->
+                                        <td class="">
+                                            
+                                            <div class="d-flex flex-wrap justify-content-start gap-2">
+                                               
                                                 <form action="{{ route('task.undone', $task->id) }}" method="POST" class="d-inline">
                                                     @csrf
                                                     @method('PATCH')
@@ -55,7 +55,7 @@
                                                     </button>
                                                 </form>
 
-                                                <!-- Delete Button with Confirmation -->
+                                                
                                                 <form action="{{ route('task.destroy', $task->id) }}" method="POST" class="d-inline">
                                                     @csrf
                                                     @method('DELETE')
@@ -72,7 +72,7 @@
                         </table>
                     </div>
 
-                    <!-- Back to Task List -->
+                    
                     <div class=" mt-3">
                         <a href="{{ route('task.index') }}" class="btn btn-outline-primary">Back to Task List</a>
                     </div>
