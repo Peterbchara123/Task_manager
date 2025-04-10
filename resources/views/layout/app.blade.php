@@ -17,7 +17,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="{{ route('task.index') }}">Tasks</a>
+                        <a class="nav-link " href="{{ route('task.index') }}">Tasks</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('categories.index') }}">Categories</a>
